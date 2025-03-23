@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiHUD-server", "PiHUD-server\PiHUD-server.csproj", "{FDD679AC-5960-49D0-9ECC-ACE54BE1E8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiHUD-client", "PiHUD-client\PiHUD-client.csproj", "{266BBC6E-ABB0-445C-B90E-1DFDF740F567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiHUD-core", "PiHUD-core\PiHUD-core.csproj", "{954D07A4-0F04-4F0F-9899-26C350B2C54F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDD679AC-5960-49D0-9ECC-ACE54BE1E8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD679AC-5960-49D0-9ECC-ACE54BE1E8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD679AC-5960-49D0-9ECC-ACE54BE1E8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD679AC-5960-49D0-9ECC-ACE54BE1E8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266BBC6E-ABB0-445C-B90E-1DFDF740F567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266BBC6E-ABB0-445C-B90E-1DFDF740F567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266BBC6E-ABB0-445C-B90E-1DFDF740F567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266BBC6E-ABB0-445C-B90E-1DFDF740F567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{954D07A4-0F04-4F0F-9899-26C350B2C54F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954D07A4-0F04-4F0F-9899-26C350B2C54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954D07A4-0F04-4F0F-9899-26C350B2C54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954D07A4-0F04-4F0F-9899-26C350B2C54F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
