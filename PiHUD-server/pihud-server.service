@@ -1,0 +1,12 @@
+[Unit]
+Description=PiHUD Server
+After=network.target graphical-session.target
+ConditionEnvironment=|WAYLAND_DISPLAY
+ConditionEnvironment=|DISPLAY
+
+[Service]
+Restart=always    
+ExecStart=/usr/bin/pihud-server/PiHUD-server
+
+[Install]
+WantedBy=graphical-session.target
