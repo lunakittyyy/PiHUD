@@ -24,9 +24,11 @@ class Program
                         {
                             CPUUsage = LinuxStatHelper.GetCPUUsage(),
                             MemoryUsage = LinuxStatHelper.GetMemoryUsage(),
+                            GPUUsage = LinuxStatHelper.GetGPUUsage(),
                             Kernel = LinuxStatHelper.Kernel(),
                             Up = LinuxStatHelper.Up(),
                             CpuModel = LinuxStatHelper.CPUModel(),
+                            GpuModel = LinuxStatHelper.GPUModel(),
                             RootUsage = LinuxStatHelper.RootUsage()
                         })
                     }));

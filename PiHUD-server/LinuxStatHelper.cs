@@ -20,6 +20,13 @@ public static class LinuxStatHelper
                                           """).Trim());
     }
 
+    public static int GetGPUUsage()
+    {
+        return Convert.ToInt32(RunCommand("""
+                                          nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits
+                                          """).Trim());
+    }
+
     public static string Kernel()
     {
         return RunCommand("uname -s -r -m");
@@ -34,6 +41,13 @@ public static class LinuxStatHelper
     {
         return RunCommand("""
                           lscpu | grep 'Model name:' | sed -r 's/Model name:\s{1,}//g'
+                          """);
+    }
+
+    public static string GPUModel()
+    {
+        return RunCommand("""
+                          nvidia-smi --query-gpu=gpu_name,gpu_bus_id,vbios_version --format=csv,noheader | cut -f1 -d','
                           """);
     }
 

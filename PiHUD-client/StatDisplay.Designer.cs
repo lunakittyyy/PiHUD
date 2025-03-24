@@ -27,6 +27,10 @@ namespace PiHud.Client {
         
         private Terminal.Gui.ProgressBar memBar;
         
+        private Terminal.Gui.Label label4;
+        
+        private Terminal.Gui.ProgressBar gpuBar;
+        
         private Terminal.Gui.Label label3;
         
         private Terminal.Gui.ProgressBar rootBar;
@@ -37,6 +41,8 @@ namespace PiHud.Client {
             this.textView = new Terminal.Gui.TextView();
             this.rootBar = new Terminal.Gui.ProgressBar();
             this.label3 = new Terminal.Gui.Label();
+            this.gpuBar = new Terminal.Gui.ProgressBar();
+            this.label4 = new Terminal.Gui.Label();
             this.memBar = new Terminal.Gui.ProgressBar();
             this.label2 = new Terminal.Gui.Label();
             this.cpuBar = new Terminal.Gui.ProgressBar();
@@ -73,9 +79,9 @@ namespace PiHud.Client {
             this.cpuBar.CanFocus = false;
             this.cpuBar.ShadowStyle = Terminal.Gui.ShadowStyle.None;
             this.cpuBar.Data = "cpuBar";
-            this.cpuBar.Text = "50%";
+            this.cpuBar.Text = "0%";
             this.cpuBar.TextAlignment = Terminal.Gui.Alignment.Start;
-            this.cpuBar.Fraction = 0.5F;
+            this.cpuBar.Fraction = 0F;
             this.cpuBar.BidirectionalMarquee = true;
             this.cpuBar.ProgressBarStyle = Terminal.Gui.ProgressBarStyle.Blocks;
             this.cpuBar.ProgressBarFormat = Terminal.Gui.ProgressBarFormat.SimplePlusPercentage;
@@ -102,18 +108,47 @@ namespace PiHud.Client {
             this.memBar.CanFocus = false;
             this.memBar.ShadowStyle = Terminal.Gui.ShadowStyle.None;
             this.memBar.Data = "memBar";
-            this.memBar.Text = "100%";
+            this.memBar.Text = "0%";
             this.memBar.TextAlignment = Terminal.Gui.Alignment.Start;
-            this.memBar.Fraction = 1F;
+            this.memBar.Fraction = 0F;
             this.memBar.BidirectionalMarquee = true;
             this.memBar.ProgressBarStyle = Terminal.Gui.ProgressBarStyle.Blocks;
             this.memBar.ProgressBarFormat = Terminal.Gui.ProgressBarFormat.SimplePlusPercentage;
             this.memBar.SegmentCharacter = new System.Text.Rune('▌');
             this.Add(this.memBar);
+            this.label4.Width = Dim.Auto();
+            this.label4.Height = Dim.Auto();
+            this.label4.X = 0;
+            this.label4.Y = 2;
+            this.label4.Visible = true;
+            this.label4.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
+            this.label4.CanFocus = false;
+            this.label4.ShadowStyle = Terminal.Gui.ShadowStyle.None;
+            this.label4.Data = "label4";
+            this.label4.Text = "GPU";
+            this.label4.TextAlignment = Terminal.Gui.Alignment.Start;
+            this.Add(this.label4);
+            this.gpuBar.Width = Dim.Fill(0);
+            this.gpuBar.Height = 1;
+            this.gpuBar.X = 4;
+            this.gpuBar.Y = 2;
+            this.gpuBar.Visible = true;
+            this.gpuBar.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
+            this.gpuBar.CanFocus = false;
+            this.gpuBar.ShadowStyle = Terminal.Gui.ShadowStyle.None;
+            this.gpuBar.Data = "gpuBar";
+            this.gpuBar.Text = "0%";
+            this.gpuBar.TextAlignment = Terminal.Gui.Alignment.Start;
+            this.gpuBar.Fraction = 0F;
+            this.gpuBar.BidirectionalMarquee = true;
+            this.gpuBar.ProgressBarStyle = Terminal.Gui.ProgressBarStyle.Blocks;
+            this.gpuBar.ProgressBarFormat = Terminal.Gui.ProgressBarFormat.SimplePlusPercentage;
+            this.gpuBar.SegmentCharacter = new System.Text.Rune('▌');
+            this.Add(this.gpuBar);
             this.label3.Width = Dim.Auto();
             this.label3.Height = Dim.Auto();
             this.label3.X = 0;
-            this.label3.Y = 2;
+            this.label3.Y = 3;
             this.label3.Visible = true;
             this.label3.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
             this.label3.CanFocus = false;
@@ -125,15 +160,15 @@ namespace PiHud.Client {
             this.rootBar.Width = Dim.Fill(0);
             this.rootBar.Height = 1;
             this.rootBar.X = 4;
-            this.rootBar.Y = 2;
+            this.rootBar.Y = 3;
             this.rootBar.Visible = true;
             this.rootBar.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
             this.rootBar.CanFocus = false;
             this.rootBar.ShadowStyle = Terminal.Gui.ShadowStyle.None;
             this.rootBar.Data = "rootBar";
-            this.rootBar.Text = "100%";
+            this.rootBar.Text = "0%";
             this.rootBar.TextAlignment = Terminal.Gui.Alignment.Start;
-            this.rootBar.Fraction = 1F;
+            this.rootBar.Fraction = 0F;
             this.rootBar.BidirectionalMarquee = true;
             this.rootBar.ProgressBarStyle = Terminal.Gui.ProgressBarStyle.Blocks;
             this.rootBar.ProgressBarFormat = Terminal.Gui.ProgressBarFormat.SimplePlusPercentage;
@@ -142,7 +177,7 @@ namespace PiHud.Client {
             this.textView.Width = Dim.Fill(0);
             this.textView.Height = 12;
             this.textView.X = 0;
-            this.textView.Y = 3;
+            this.textView.Y = 4;
             this.textView.Visible = true;
             this.textView.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
             this.textView.CanFocus = false;
@@ -151,7 +186,7 @@ namespace PiHud.Client {
             this.textView.AllowsReturn = true;
             this.textView.WordWrap = false;
             this.textView.Data = "textView";
-            this.textView.Text = "wawa";
+            this.textView.Text = "Waiting for a response from the server...";
             this.textView.TextAlignment = Terminal.Gui.Alignment.Start;
             this.Add(this.textView);
         }
