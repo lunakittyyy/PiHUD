@@ -20,6 +20,8 @@ namespace PiHud.Client {
     
     public partial class StatDisplay {
         public ProgressBar CpuBar => this.cpuBar;
+        public ProgressBar RamBar => this.memBar;
+        public ProgressBar RootBar => this.rootBar;
         public TextView TextView => this.textView;
         public StatDisplay()
         {

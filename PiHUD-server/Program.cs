@@ -23,8 +23,11 @@ class Program
                         Content = JsonConvert.SerializeObject(new StatHeartbeat()
                         {
                             CPUUsage = LinuxStatHelper.GetCPUUsage(),
-                            MemoryUsage = 0,
-                            Fetch = LinuxStatHelper.FastFetch()
+                            MemoryUsage = LinuxStatHelper.GetMemoryUsage(),
+                            Kernel = LinuxStatHelper.Kernel(),
+                            Up = LinuxStatHelper.Up(),
+                            CpuModel = LinuxStatHelper.CPUModel(),
+                            RootUsage = LinuxStatHelper.RootUsage()
                         })
                     }));
                     break;

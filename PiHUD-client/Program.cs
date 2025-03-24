@@ -41,8 +41,12 @@ class Program
                                     Application.Invoke(() =>
                                     {
                                         stat.CpuBar.Fraction = heartbeat.CPUUsage / 100f;
-                                        stat.TextView.Text = heartbeat.Fetch;
+                                        stat.RootBar.Fraction = heartbeat.RootUsage / 100f;
+                                        stat.RamBar.Fraction = heartbeat.MemoryUsage / 100f;
+                                        stat.TextView.Text = $"{heartbeat.Kernel}{heartbeat.Up}{heartbeat.CpuModel}";
                                         stat.CpuBar.Draw();
+                                        stat.RootBar.Draw();
+                                        stat.RamBar.Draw();
                                         stat.TextView.Draw();
                                     });
                                     break;

@@ -27,10 +27,16 @@ namespace PiHud.Client {
         
         private Terminal.Gui.ProgressBar memBar;
         
+        private Terminal.Gui.Label label3;
+        
+        private Terminal.Gui.ProgressBar rootBar;
+        
         private Terminal.Gui.TextView textView;
         
         private void InitializeComponent() {
             this.textView = new Terminal.Gui.TextView();
+            this.rootBar = new Terminal.Gui.ProgressBar();
+            this.label3 = new Terminal.Gui.Label();
             this.memBar = new Terminal.Gui.ProgressBar();
             this.label2 = new Terminal.Gui.Label();
             this.cpuBar = new Terminal.Gui.ProgressBar();
@@ -55,12 +61,12 @@ namespace PiHud.Client {
             this.label.CanFocus = false;
             this.label.ShadowStyle = Terminal.Gui.ShadowStyle.None;
             this.label.Data = "label";
-            this.label.Text = "CPU Usage";
+            this.label.Text = "CPU";
             this.label.TextAlignment = Terminal.Gui.Alignment.Start;
             this.Add(this.label);
-            this.cpuBar.Width = 32;
+            this.cpuBar.Width = Dim.Fill(0);
             this.cpuBar.Height = 1;
-            this.cpuBar.X = 10;
+            this.cpuBar.X = 4;
             this.cpuBar.Y = 0;
             this.cpuBar.Visible = true;
             this.cpuBar.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
@@ -84,12 +90,12 @@ namespace PiHud.Client {
             this.label2.CanFocus = false;
             this.label2.ShadowStyle = Terminal.Gui.ShadowStyle.None;
             this.label2.Data = "label2";
-            this.label2.Text = "RAM Usage";
+            this.label2.Text = "RAM";
             this.label2.TextAlignment = Terminal.Gui.Alignment.Start;
             this.Add(this.label2);
-            this.memBar.Width = 32;
+            this.memBar.Width = Dim.Fill(0);
             this.memBar.Height = 1;
-            this.memBar.X = 10;
+            this.memBar.X = 4;
             this.memBar.Y = 1;
             this.memBar.Visible = true;
             this.memBar.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
@@ -104,10 +110,39 @@ namespace PiHud.Client {
             this.memBar.ProgressBarFormat = Terminal.Gui.ProgressBarFormat.SimplePlusPercentage;
             this.memBar.SegmentCharacter = new System.Text.Rune('▌');
             this.Add(this.memBar);
-            this.textView.Width = 42;
+            this.label3.Width = Dim.Auto();
+            this.label3.Height = Dim.Auto();
+            this.label3.X = 0;
+            this.label3.Y = 2;
+            this.label3.Visible = true;
+            this.label3.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
+            this.label3.CanFocus = false;
+            this.label3.ShadowStyle = Terminal.Gui.ShadowStyle.None;
+            this.label3.Data = "label3";
+            this.label3.Text = "/";
+            this.label3.TextAlignment = Terminal.Gui.Alignment.Start;
+            this.Add(this.label3);
+            this.rootBar.Width = Dim.Fill(0);
+            this.rootBar.Height = 1;
+            this.rootBar.X = 4;
+            this.rootBar.Y = 2;
+            this.rootBar.Visible = true;
+            this.rootBar.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
+            this.rootBar.CanFocus = false;
+            this.rootBar.ShadowStyle = Terminal.Gui.ShadowStyle.None;
+            this.rootBar.Data = "rootBar";
+            this.rootBar.Text = "100%";
+            this.rootBar.TextAlignment = Terminal.Gui.Alignment.Start;
+            this.rootBar.Fraction = 1F;
+            this.rootBar.BidirectionalMarquee = true;
+            this.rootBar.ProgressBarStyle = Terminal.Gui.ProgressBarStyle.Blocks;
+            this.rootBar.ProgressBarFormat = Terminal.Gui.ProgressBarFormat.SimplePlusPercentage;
+            this.rootBar.SegmentCharacter = new System.Text.Rune('▌');
+            this.Add(this.rootBar);
+            this.textView.Width = Dim.Fill(0);
             this.textView.Height = 12;
             this.textView.X = 0;
-            this.textView.Y = 2;
+            this.textView.Y = 3;
             this.textView.Visible = true;
             this.textView.Arrangement = Terminal.Gui.ViewArrangement.Fixed;
             this.textView.CanFocus = false;
