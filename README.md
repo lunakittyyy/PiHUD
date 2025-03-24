@@ -8,16 +8,16 @@ PiHUD is a (currently CLI) heads-up system display intended for the Raspberry Pi
 
 ## Features
 - [ ] Stats bars
-  - [x] CPU bar
-  - [x] RAM bar
-  - [ ] Swap bar
-  - [ ] GPU bar
-  - [X] Root disk usage bar
-  - [ ] Network interface Tx bar
-  - [ ] Network interface Rx bar
+  - [x] CPU % bar
+  - [x] RAM % bar
+  - [ ] Swap % bar
+  - [ ] GPU % bar
+  - [X] Root disk usage % bar
 - [ ] Text stats
   - [x] Kernel version, architecture
   - [x] Uptime
   - [x] CPU model
   - [ ] GPU model
+  - [ ] Network interface Tx
+  - [ ] Network interface Rx
   
