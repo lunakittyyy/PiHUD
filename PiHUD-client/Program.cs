@@ -13,6 +13,7 @@ class Program
     static void Main(string[] args)
     {
         Stopwatch? watch = Stopwatch.StartNew();
+        int pulseCounter = 0;
         
         Application.Init();
         var stat = new StatDisplay();
@@ -40,6 +41,7 @@ class Program
                             switch (packet!.Type)
                             {
                                 case Packet.PacketType.S2CReturnStatPulse:
+                                    pulseCounter++;
                                     var heartbeat = JsonConvert.DeserializeObject<StatHeartbeat>(packet.Content);
                                     watch.Stop();
                                     Application.Invoke(() =>
@@ -49,7 +51,7 @@ class Program
                                         stat.RamBar.Fraction = heartbeat.MemoryUsage / 100f;
                                         stat.GpuBar.Fraction = heartbeat.GPUUsage / 100f;
                                         stat.TextView.Text = $"{heartbeat.Up}";
-                                        stat.StatusLabel.Text = $"Stats updated in {watch!.ElapsedMilliseconds}ms";
+                                        stat.StatusLabel.Text = $"Stats updated in {watch!.ElapsedMilliseconds}ms (pulse {pulseCounter})";
                                         stat.CpuBar.Draw();
                                         stat.RootBar.Draw();
                                         stat.RamBar.Draw();
