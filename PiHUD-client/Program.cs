@@ -18,8 +18,6 @@ class Program
         var stat = new StatDisplay();
         var thread = new Thread(() =>
                     {
-                        bool didOneShot = false;
-                        
                         SettingsHelper settings = new SettingsHelper();
                         var setString = settings.LoadSettings("client.json");
                         if (setString.IsNullOrEmpty())
@@ -75,8 +73,6 @@ class Program
                         };
                         try
                         {
-                            ws.Connect();
-
                             System.Timers.Timer timer = new System.Timers.Timer();
                             timer.Elapsed += (sender, e) =>
                             {
@@ -90,12 +86,6 @@ class Program
                                 {
                                     ws.Send(JsonConvert.SerializeObject(new Packet()
                                         { Type = Packet.PacketType.C2SRequestStatPulse }));
-                                    if (!didOneShot)
-                                    {
-                                        ws.Send(JsonConvert.SerializeObject(new Packet()
-                                            { Type = Packet.PacketType.C2SRequestStatOneshot }));
-                                        didOneShot = true;
-                                    }
                                 }
                                 else
                                 {
@@ -105,6 +95,8 @@ class Program
                                         stat.StatusLabel.Draw();
                                     });
                                     ws.Connect();
+                                    ws.Send(JsonConvert.SerializeObject(new Packet()
+                                        { Type = Packet.PacketType.C2SRequestStatOneshot }));
                                 }
                             };
                             timer.Interval = 2000;
