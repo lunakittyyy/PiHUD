@@ -36,7 +36,7 @@ class Program
     
     static void Main(string[] args)
     {
-        var wssv = new WebSocketServer ("ws://127.0.0.1:8008");
+        var wssv = new WebSocketServer ("ws://0.0.0.0:8008");
 
         wssv.AddWebSocketService<PiHudWSServer> ("/");
         wssv.Start ();
