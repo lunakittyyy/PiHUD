@@ -19,7 +19,8 @@ namespace PiHud.Client {
     
     
     public partial class StatDisplay {
-        public Terminal.Gui.ProgressBar CpuBar => this.cpuBar;
+        public ProgressBar CpuBar => this.cpuBar;
+        public TextView TextView => this.textView;
         public StatDisplay()
         {
             InitializeComponent();

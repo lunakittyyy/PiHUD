@@ -41,7 +41,9 @@ class Program
                                     Application.Invoke(() =>
                                     {
                                         stat.CpuBar.Fraction = heartbeat.CPUUsage / 100f;
+                                        stat.TextView.Text = heartbeat.Fetch;
                                         stat.CpuBar.Draw();
+                                        stat.TextView.Draw();
                                     });
                                     break;
                                 default:
