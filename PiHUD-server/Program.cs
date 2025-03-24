@@ -16,20 +16,29 @@ class Program
 
             switch (packet!.Type)
             {
-                case Packet.PacketType.C2SAskStats:
+                case Packet.PacketType.C2SRequestStatPulse:
                     Send(JsonConvert.SerializeObject(new Packet()
                     {
-                        Type = Packet.PacketType.S2CReturnStats,
+                        Type = Packet.PacketType.S2CReturnStatPulse,
                         Content = JsonConvert.SerializeObject(new StatHeartbeat()
                         {
                             CPUUsage = LinuxStatHelper.GetCPUUsage(),
                             MemoryUsage = LinuxStatHelper.GetMemoryUsage(),
                             GPUUsage = LinuxStatHelper.GetGPUUsage(),
-                            Kernel = LinuxStatHelper.Kernel(),
                             Up = LinuxStatHelper.Up(),
-                            CpuModel = LinuxStatHelper.CPUModel(),
-                            GpuModel = LinuxStatHelper.GPUModel(),
                             RootUsage = LinuxStatHelper.RootUsage()
+                        })
+                    }));
+                    break;
+                case Packet.PacketType.C2SRequestStatOneshot:
+                    Send(JsonConvert.SerializeObject(new Packet()
+                    {
+                        Type = Packet.PacketType.S2CReturnStatOneshot,
+                        Content = JsonConvert.SerializeObject(new StatOneshot()
+                        {
+                            Kernel = LinuxStatHelper.Kernel(),
+                            CpuModel = LinuxStatHelper.CPUModel(),
+                            GpuModel = LinuxStatHelper.GPUModel()
                         })
                     }));
                     break;

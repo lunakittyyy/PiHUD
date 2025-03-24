@@ -10,6 +10,7 @@
 
 using Newtonsoft.Json;
 using PiHUD_client;
+using PiHUD.Client;
 using WebSocketSharp;
 using PiHUD.Core;
 using Timer = System.Timers.Timer;
@@ -23,7 +24,9 @@ namespace PiHud.Client {
         public ProgressBar RamBar => this.memBar;
         public ProgressBar GpuBar => this.gpuBar;
         public ProgressBar RootBar => this.rootBar;
+        public TextView StaticTextView => this.staticTextView;
         public TextView TextView => this.textView;
+        public Label StatusLabel => this.label5;
         public StatDisplay()
         {
             InitializeComponent();
