@@ -20,4 +20,13 @@ PiHUD is a (currently CLI) heads-up system display intended for the Raspberry Pi
   - [x] GPU model (NVIDIA only for now)
   - [ ] Network interface Tx
   - [ ] Network interface Rx
-  
+
+## Requirements
+- .NET 9
+  ### Client
+  - LAN connection
+  - Any TTY or terminal emulator
+  ### Server
+  - LAN connection
+  - Basic coreutils (sed, grep, free, etc.)
+  - nvidia-smi (AMD GPU support will only come until I either personally get one or it is contributed)
