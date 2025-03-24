@@ -86,13 +86,25 @@ class Program
                                     stat.StatusLabel.Draw();
                                 });
                                 watch = Stopwatch.StartNew();
-                                ws.Send(JsonConvert.SerializeObject(new Packet()
-                                    { Type = Packet.PacketType.C2SRequestStatPulse }));
-                                if (!didOneShot)
+                                if (ws.IsAlive)
                                 {
                                     ws.Send(JsonConvert.SerializeObject(new Packet()
-                                        { Type = Packet.PacketType.C2SRequestStatOneshot }));
-                                    didOneShot = true;
+                                        { Type = Packet.PacketType.C2SRequestStatPulse }));
+                                    if (!didOneShot)
+                                    {
+                                        ws.Send(JsonConvert.SerializeObject(new Packet()
+                                            { Type = Packet.PacketType.C2SRequestStatOneshot }));
+                                        didOneShot = true;
+                                    }
+                                }
+                                else
+                                {
+                                    Application.Invoke(() =>
+                                    {
+                                        stat.StatusLabel.Text = "Reconnecting...";
+                                        stat.StatusLabel.Draw();
+                                    });
+                                    ws.Connect();
                                 }
                             };
                             timer.Interval = 2000;
